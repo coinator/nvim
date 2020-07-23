@@ -11,5 +11,6 @@ Plug 'lervag/vimtex'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'SirVer/ultisnips'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()

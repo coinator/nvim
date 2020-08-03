@@ -6,3 +6,4 @@ let g:python3_host_prog = "$HOME/.config/nvim/venv/bin/python3"
 nnoremap : ;
 nnoremap ; :
 
+nnoremap gs :Gstatus <CR> G

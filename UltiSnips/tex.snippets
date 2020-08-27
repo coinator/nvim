@@ -1,10 +1,21 @@
-snippet begin "environements" bA
+snippet "\\?b(egin)?" "environements" br
 \begin{${1:something}}
-	${0:VISUAL}
+	${0:${VISUAL}}
 \end{$1}
 endsnippet
 
-snippet cite "citations" A
-~\cite{$0}
+snippet cite "citations" 
+~\cite{${0:${VISUAL}}}
 endsnippet
 
+snippet subset 
+\subset
+endsnippet
+
+snippet set
+\mathbb{$0}
+endsnippet
+
+snippet itsit's "dumb snippet to remember they can replace"
+${VISUAL:/its/it's/g}
+endsnippet

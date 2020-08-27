@@ -1,4 +1,6 @@
 set termguicolors
+
+" also need to apt install fonts-powerline
 let g:airline_powerline_fonts = 1
 
 let t:is_transparent = 0

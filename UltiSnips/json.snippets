@@ -1,0 +1,20 @@
+snippet vimspector
+{
+	"configurations" : {
+		"Launch": {
+			"adapter": "debugpy",
+			"configuration": {
+				"request": "launch",
+				"program": "${file}",
+				"stopAtEntry": true
+			},
+			"breakpoints": {
+				"exception": {
+					"caught": "Y",
+					"uncaught": "Y"
+				}
+			}	
+		}
+	}
+}
+endsnippet

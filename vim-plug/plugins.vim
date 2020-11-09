@@ -1,15 +1,21 @@
 call plug#begin('~/.vim/plugged')
 
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'lervag/vimtex'
+Plug 'lilydjwg/colorizer'
+Plug 'liuchengxu/vim-which-key'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'puremourning/vimspector'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vimwiki/vimwiki'
 
-Plug 'puremourning/vimspector'
+"Plug 'SkyLeach/pudb.vim'
 
 call plug#end()

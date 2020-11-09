@@ -13,7 +13,7 @@ function! Toggle_transparent()
         let t:is_tranparent = 0
     endif
 endfunction
-nnoremap <C-t> :call Toggle_transparent()<CR>
+"nnoremap <C-t> :call Toggle_transparent()<CR>
 
 colorscheme gruvbox
 call Toggle_transparent()

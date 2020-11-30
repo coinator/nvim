@@ -15,5 +15,5 @@ function! Toggle_transparent()
 endfunction
 "nnoremap <C-t> :call Toggle_transparent()<CR>
 
-colorscheme gruvbox
+colorscheme onedark
 call Toggle_transparent()

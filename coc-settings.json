@@ -1,4 +1,5 @@
 {
+	"coc.preferences.formatOnSaveFiletypes": ["python"],
 	"python.jediEnabled": false,
 	"python.formatting.provider": "yapf"
 }

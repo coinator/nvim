@@ -5,16 +5,11 @@ noremap ; :
 nnoremap <leader>o o<Esc>
 nnoremap <leader>O O<Esc>
 
-" in order to use tmux better
-"noremap <C-A> <nop>
-"noremap <leader><C-A> <C-A>
-
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-inoremap <C-h> <Esc><C-w>h
 inoremap <C-j> <Esc><C-w>j
 inoremap <C-k> <Esc><C-w>k
 inoremap <C-l> <Esc><C-w>l
@@ -22,6 +17,7 @@ inoremap <C-^> <Esc><C-w>^
 
 autocmd termOpen * nnoremap <buffer> <Up> a<Up>
 tnoremap gt <C-\><C-N>gt
+tnoremap <C-^> <C-\><C-N><C-^>
 
 nnoremap <leader>n :noh<CR>
 

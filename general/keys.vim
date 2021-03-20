@@ -13,6 +13,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 inoremap <C-^> <Esc><C-w>^
+" avoid inoremap <C-k>, in order to add umlauts
 
 autocmd termOpen * nnoremap <buffer> <Up> a<Up>
 tnoremap gt <C-\><C-N>gt

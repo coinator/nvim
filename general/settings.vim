@@ -13,7 +13,13 @@ set relativenumber
 set nowrap
 "set nrformats+=alpha
 
-autocmd BufRead,BufNewFile *.tex set wrap
+" case insensitive search and completion
+" for strict case search append \C
+set ignorecase 
+
+augroup tex
+	autocmd BufRead,BufNewFile *.tex setlocal wrap spell
+augroup END
 
 set foldmethod=indent
 set foldnestmax=10

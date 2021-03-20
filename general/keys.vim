@@ -1,5 +1,7 @@
+" my lazy remaps
 noremap : ;
 noremap ; :
+noremap q; q:
 
 " add lines
 nnoremap <leader>o o<Esc>
@@ -10,9 +12,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-inoremap <C-j> <Esc><C-w>j
-inoremap <C-k> <Esc><C-w>k
-inoremap <C-l> <Esc><C-w>l
 inoremap <C-^> <Esc><C-w>^
 
 autocmd termOpen * nnoremap <buffer> <Up> a<Up>
@@ -30,7 +29,11 @@ nnoremap <Plug>FzfBuffers :Buffers<CR>
 nmap <leader>ls <Plug>FzfBuffers
 
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
- 
+
+" open vimwiki in new terminal
+nnoremap VimwikiWindow :silent !gnome-terminal -- nvim -c 'VimwikiIndex'<CR>
+nmap <silent> <leader>ww VimwikiWindow
+
 " Vimspector
 nmap <F5>         <Plug>VimspectorContinue
 nmap <F3>         <Plug>VimspectorStop

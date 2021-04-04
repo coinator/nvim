@@ -31,9 +31,18 @@ nmap <leader>ls <Plug>FzfBuffers
 
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
-" open vimwiki in new terminal
-nnoremap VimwikiWindow :silent !gnome-terminal -- nvim -c 'VimwikiIndex'<CR>
-nmap <silent> <leader>ww VimwikiWindow
+augroup nonEmptyNonWiki
+	" for wiki files behave like default
+	autocmd!
+	autocmd BufRead,BufNewFile **/vimwiki/*.wiki let b:wiki=1
+	autocmd BufRead,BufNewFile * call EnableVimwikiNewWindow()
+	function EnableVimwikiNewWindow()
+		if !exists("b:wiki")
+			nnoremap VimwikiWindow :silent !gnome-terminal -- nvim -c 'VimwikiIndex'<CR>
+			nmap <silent> <leader>ww VimwikiWindow
+		endif
+	endfunction
+augroup end
 
 " Vimspector
 nmap <F5>         <Plug>VimspectorContinue

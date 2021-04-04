@@ -25,3 +25,5 @@ set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
+
+let $FZF_DEFAULT_COMMAND='ag --hidden --ignore={venv,.git} -g ""'

@@ -19,8 +19,4 @@ Plug 'vimwiki/vimwiki'
 Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
 
-
-" TODO: Annoying legacy issue
-"Plug 'SkyLeach/pudb.vim'
-
 call plug#end()

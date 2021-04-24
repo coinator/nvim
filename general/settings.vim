@@ -17,9 +17,6 @@ set nowrap
 " for strict case search append \C
 set ignorecase 
 
-augroup tex
-	autocmd BufRead,BufNewFile *.tex setlocal wrap spell
-augroup END
 
 set foldmethod=indent
 set foldnestmax=10

@@ -15,7 +15,7 @@ nnoremap <C-l> <C-w>l
 inoremap <C-^> <Esc><C-w>^
 " avoid inoremap <C-k>, in order to add umlauts
 
-autocmd termOpen * nnoremap <buffer> <Up> a<Up>
+autocmd termOpen * nnoremap <buffer> <C-P> a<Up>
 tnoremap gt <C-\><C-N>gt
 tnoremap <C-^> <C-\><C-N><C-^>
 
@@ -35,7 +35,7 @@ augroup nonEmptyNonWiki
 	autocmd!
 	autocmd BufRead,BufNewFile **/vimwiki/*.wiki let b:wiki=1
 	autocmd BufRead,BufNewFile * call EnableVimwikiNewWindow()
-	function EnableVimwikiNewWindow()
+	function! EnableVimwikiNewWindow()
 		if !exists("b:wiki")
 			let b:indexWiki = bufexists('vimwiki/index.wiki')
 			if !b:indexWiki
@@ -45,6 +45,28 @@ augroup nonEmptyNonWiki
 		endif
 	endfunction
 augroup end
+
+"FZF Buffer Delete
+function! s:list_buffers()
+  redir => list
+  silent ls
+  redir END
+  return split(list, "\n")
+endfunction
+
+function! s:deletebuffers(lines)
+  echo a:lines
+  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+endfunction
+
+command! Bdelete call fzf#run(fzf#wrap({
+  \ 'source': s:list_buffers(),
+  \ 'sink*': { lines -> s:deletebuffers(lines) },
+  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
+\ }))
+
+nnoremap <leader>bd :Bdelete<CR>
+command! -bar -bang -nargs=? -complete=buffer Buffers  call fzf#vim#buffers(<q-args>, fzf#vim#with_preview({ "placeholder": "{0}" }), <bang>0)
 
 " Vimspector
 nmap <F5>         <Plug>VimspectorContinue

@@ -15,5 +15,8 @@ function! Toggle_transparent()
 endfunction
 "nnoremap <C-t> :call Toggle_transparent()<CR>
 
-colorscheme onedark
+colorscheme gruvbox
 call Toggle_transparent()
+
+" the vertical bar is used to highlight the space
+set fillchars+=vert:\ | " and serve as an inline comment example 

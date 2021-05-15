@@ -1,5 +1,6 @@
 {
 	"coc.preferences.formatOnSaveFiletypes": ["python"],
 	"python.jediEnabled": false,
-	"python.formatting.provider": "yapf"
+	"python.formatting.provider": "yapf",
+	"python.formatting.yapfPath": "~/.config/nvim/venv/bin/yapf"
 }

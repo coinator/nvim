@@ -1,6 +1,7 @@
 set nocompatible
 set hidden
 filetype plugin on
+filetype plugin indent on
 syntax on
 
 let mapleader = " "
@@ -10,13 +11,14 @@ let g:python3_host_prog = "$HOME/.config/nvim/venv/bin/python3"
 
 set number
 set relativenumber
+set numberwidth=1
 
 set nowrap
 "set nrformats+=alpha
 
 " case insensitive search and completion
 " for strict case search append \C
-set ignorecase 
+set ignorecase
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid, when inside an event handler
@@ -34,3 +36,10 @@ set nofoldenable
 set foldlevel=2
 
 let $FZF_DEFAULT_COMMAND='ag --hidden --ignore={venv,.git} -g ""'
+
+function! Chomp(string)
+    return substitute(a:string, '\n\+$', '', '')
+endfunction
+let g:neoterm_repl_python = Chomp(system('which jupyter')) . ' console'
+" correctly paste indents
+let g:neoterm_bracketed_paste = 1 

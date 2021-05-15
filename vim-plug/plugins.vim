@@ -1,22 +1,29 @@
 call plug#begin('~/.vim/plugged')
-
-
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+ 
+ 
+Plug 'junegunn/Goyo.vim'
+Plug 'kassio/neoterm'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'lervag/vimtex'
 Plug 'lilydjwg/colorizer'
 Plug 'liuchengxu/vim-which-key'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovim/nvim-lspconfig'
-Plug 'puremourning/vimspector'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'mfussenegger/nvim-dap'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-surround'
+Plug 'vim-test/vim-test'
 Plug 'vimwiki/vimwiki'
 
-" Themes 
+" Aesthetic
+Plug 'vim-airline/vim-airline'
 Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()

@@ -23,59 +23,24 @@ nnoremap <leader>n :noh<CR>
 
 nnoremap gs :Gstatus <CR> G
 
-nnoremap <Plug>FzfFiles :Files<CR>
-nmap <C-p> <Plug>FzfFiles
+nnoremap <C-p> :lua require('telescope.builtin').find_files{ find_command = { 'ag',  '--hidden',  '--ignore={venv,.git}', '-g', ''} }<CR>
+nnoremap <leader>tt <CMD>Telescope live_grep<CR>
+nnoremap <leader>ls <CMD>Telescope buffers<CR>
 
-nnoremap <Plug>FzfBuffers :Buffers<CR>
-nmap <leader>ls <Plug>FzfBuffers
+nnoremap <silent> <leader><leader> :WhichKey '<Space>'<CR>
 
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+nnoremap <leader>cc :TREPLSendLine<CR>
+nnoremap <leader>ca :TREPLSendFile<CR>
+vnoremap <leader>cc :TREPLSendSelection<CR>
 
-augroup nonEmptyNonWiki
-	autocmd!
-	autocmd BufRead,BufNewFile **/vimwiki/*.wiki let b:wiki=1
-	autocmd BufRead,BufNewFile * call EnableVimwikiNewWindow()
-	function! EnableVimwikiNewWindow()
-		if !exists("b:wiki")
-			let b:indexWiki = bufexists('vimwiki/index.wiki')
-			if !b:indexWiki
-				nnoremap <buffer> defaultVimwikiWindow :silent !gnome-terminal -- nvim -c 'VimwikiIndex'<CR>
-				nmap <silent> <leader>ww defaultVimwikiWindow
-			endif
-		endif
-	endfunction
-augroup end
+nnoremap <leader>g <CMD>Goyo<CR>
 
-"FZF Buffer Delete
-function! s:list_buffers()
-  redir => list
-  silent ls
-  redir END
-  return split(list, "\n")
-endfunction
-
-function! s:deletebuffers(lines)
-  echo a:lines
-  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
-endfunction
-
-command! Bdelete call fzf#run(fzf#wrap({
-  \ 'source': s:list_buffers(),
-  \ 'sink*': { lines -> s:deletebuffers(lines) },
-  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
-\ }))
-
-nnoremap <leader>bd :Bdelete<CR>
-command! -bar -bang -nargs=? -complete=buffer Buffers  call fzf#vim#buffers(<q-args>, fzf#vim#with_preview({ "placeholder": "{0}" }), <bang>0)
-
-" Vimspector
-nmap <F5>         <Plug>VimspectorContinue
-nmap <F3>         <Plug>VimspectorStop
-nmap <F4>         <Plug>VimspectorRestart
-nmap <F6>         <Plug>VimspectorPause
-nmap <F9>         <Plug>VimspectorToggleBreakpoint
-nmap <leader><F9> <Plug>VimspectorToggleConditionalBreakpoint
-nmap <F8>         <Plug>VimspectorAddFunctionBreakpoint
-nmap <F10>        <Plug>VimspectorStepOver
-nmap <leader>vi   <Plug>VimspectorStepInto
-nmap <leader>vo   <Plug>VimspectorStepOut
+nnoremap <silent> <leader>d :lua require'dap'.continue()<CR>
+nnoremap <silent> <leader>s  :lua require'dap'.step_over()<CR>
+nnoremap <silent> <leader>si  :lua require'dap'.step_into()<CR>
+nnoremap <silent> <leader>so  :lua require'dap'.step_out()<CR>
+nnoremap <silent> <leader>b :lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+nnoremap <silent> <leader>ro :lua require'dap'.repl.open()<CR>
+nnoremap <silent> <leader>rl :lua require'dap'.run_last()<CR>

@@ -21,7 +21,7 @@ tnoremap <C-^> <C-\><C-N><C-^>
 
 nnoremap <leader>n :noh<CR>
 
-nnoremap gs :Gstatus <CR> G
+nnoremap <leader>gs :Git <CR> G
 
 nnoremap <silent> <C-p> :lua require('telescope.builtin').find_files{ find_command = { 'ag',  '--hidden',  '--ignore=venv', '--ignore=.git', '-g', ''} }<CR>
 nnoremap <leader>tt <CMD>Telescope live_grep<CR>
@@ -37,7 +37,7 @@ augroup NeotermPython
   autocmd FileType python nnoremap <silent><buffer> <leader>ca :call neoterm#repl#python#exec(['%run <C-R>%'])<CR>
 augroup end
 
-nnoremap <leader>g <CMD>ZenMode<CR>
+nnoremap <leader>gg <CMD>ZenMode<CR>
 
 nnoremap <silent> <leader>d :lua require'dap'.continue()<CR>
 nnoremap <silent> <leader>s  :lua require'dap'.step_over()<CR>

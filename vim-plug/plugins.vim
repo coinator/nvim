@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
  
  
-Plug 'junegunn/Goyo.vim'
+Plug 'folke/zen-mode.nvim'
 Plug 'kassio/neoterm'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'lervag/vimtex'

@@ -33,7 +33,7 @@ nnoremap <leader>cc :TREPLSendLine<CR>
 nnoremap <leader>ca :TREPLSendFile<CR>
 vnoremap <leader>cc :TREPLSendSelection<CR>
 
-nnoremap <leader>g <CMD>Goyo<CR>
+nnoremap <leader>g <CMD>ZenMode<CR>
 
 nnoremap <silent> <leader>d :lua require'dap'.continue()<CR>
 nnoremap <silent> <leader>s  :lua require'dap'.step_over()<CR>

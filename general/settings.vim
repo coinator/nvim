@@ -40,6 +40,9 @@ let $FZF_DEFAULT_COMMAND='ag --hidden --ignore={venv,.git} -g ""'
 function! Chomp(string)
     return substitute(a:string, '\n\+$', '', '')
 endfunction
-let g:neoterm_repl_python = Chomp(system('which jupyter')) . ' console'
+    
+if $VIRTUAL_ENV != ""
+  let g:neoterm_repl_python = Chomp(system('which jupyter')) . ' console'
+endif
 " correctly paste indents
 let g:neoterm_bracketed_paste = 1 

@@ -8,5 +8,5 @@ source $HOME/.config/nvim/general/vimwiki-settings.vim
 source $HOME/.config/nvim/general/theme.vim
 source $HOME/.config/nvim/general/coc-settings.vim
 source $HOME/.config/nvim/general/lazy-mode.vim
-luafile $HOME/.config/nvim/general/telescope.lua
-luafile $HOME/.config/nvim/general/debug.lua
+luafile $HOME/.config/nvim/lua/telescope-settings.lua
+luafile $HOME/.config/nvim/lua/debug-settings.lua

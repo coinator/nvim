@@ -23,7 +23,7 @@ nnoremap <leader>n :noh<CR>
 
 nnoremap gs :Gstatus <CR> G
 
-nnoremap <C-p> :lua require('telescope.builtin').find_files{ find_command = { 'ag',  '--hidden',  '--ignore={venv,.git}', '-g', ''} }<CR>
+nnoremap <silent> <C-p> :lua require('telescope.builtin').find_files{ find_command = { 'ag',  '--hidden',  '--ignore=venv', '--ignore=.git', '-g', ''} }<CR>
 nnoremap <leader>tt <CMD>Telescope live_grep<CR>
 nnoremap <leader>ls <CMD>Telescope buffers<CR>
 

@@ -31,6 +31,7 @@ nnoremap <leader>ls <CMD>Telescope buffers<CR>
 
 " Send line, file and selection (ipython focused)
 nnoremap <leader>cc :TREPLSendLine<CR>
+nnoremap <leader>ca :TREPLSendFile<CR>
 vnoremap <leader>cc :TREPLSendSelection<CR>
 augroup NeotermPython
   autocmd!

@@ -11,3 +11,4 @@ source $HOME/.config/nvim/general/lazy-mode.vim
 luafile $HOME/.config/nvim/lua/telescope-settings.lua
 luafile $HOME/.config/nvim/lua/debug-settings.lua
 luafile $HOME/.config/nvim/lua/zen-settings.lua
+luafile $HOME/.config/nvim/lua/which-key-settings.lua

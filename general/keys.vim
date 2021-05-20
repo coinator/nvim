@@ -27,7 +27,7 @@ nnoremap <silent> <C-p> :lua require('telescope.builtin').find_files{ find_comma
 nnoremap <leader>tt <CMD>Telescope live_grep<CR>
 nnoremap <leader>ls <CMD>Telescope buffers<CR>
 
-nnoremap <silent> <leader><leader> :WhichKey '<Space>'<CR>
+" nnoremap <silent> <leader><leader> :WhichKey '<Space>'<CR>
 
 " Send line, file and selection (ipython focused)
 nnoremap <leader>cc :TREPLSendLine<CR>

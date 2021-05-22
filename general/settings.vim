@@ -45,4 +45,7 @@ if $VIRTUAL_ENV != ""
   let g:neoterm_repl_python = Chomp(system('which jupyter')) . ' console'
 endif
 " correctly paste indents
-let g:neoterm_bracketed_paste = 1 
+augroup PythonREPL
+  autocmd!
+  autocmd Filetype python let g:neoterm_bracketed_paste = 1 
+augroup end

@@ -25,9 +25,9 @@ set ignorecase
 " (happens when dropping a file on gvim) and for a commit message (it's
 " likely a different one than last time).
 autocmd BufReadPost *
-	\ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-	\ |   exe "normal! g`\""
-	\ | endif
+  \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+  \ |   exe "normal! g`\""
+  \ | endif
 
 
 set foldmethod=indent
@@ -40,12 +40,14 @@ let $FZF_DEFAULT_COMMAND='ag --hidden --ignore={venv,.git} -g ""'
 function! Chomp(string)
     return substitute(a:string, '\n\+$', '', '')
 endfunction
-    
+
+let g:neoterm_autoscroll=1
 if $VIRTUAL_ENV != ""
   let g:neoterm_repl_python = Chomp(system('which jupyter')) . ' console'
 endif
 " correctly paste indents
 augroup PythonREPL
   autocmd!
-  autocmd Filetype python let g:neoterm_bracketed_paste = 1 
+  autocmd BufEnter *.py let g:neoterm_bracketed_paste = 1
+  autocmd BufLeave *.py let g:neoterm_bracketed_paste = 0
 augroup end

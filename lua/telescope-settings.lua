@@ -2,16 +2,6 @@ local actions = require('telescope.actions')
 
 require('telescope').setup{
   defaults = {
---   vimgrep_arguments = {
---   'rg',
---   '--color=never',
---   '--no-heading',
---   '--with-filename',
---   '--line-number',
---   '--column',
---   '--smart-case',
---   '--hidden'
---   },
   vimgrep_arguments = {
   'rg',
   '--color=never',
@@ -64,5 +54,18 @@ require('telescope').setup{
 
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
+  },
+  pickers = {
+    buffers = {
+      sort_lastused = true,
+  mappings = {
+    i = {
+      ["<c-d>"] = require("telescope.actions").delete_buffer,
+    },
+    n = {
+      ["<c-d>"] = require("telescope.actions").delete_buffer,
+    }
   }
+   }
+  },
 }

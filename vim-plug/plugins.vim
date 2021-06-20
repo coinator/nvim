@@ -17,6 +17,8 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'rcarriga/vim-ultest'
 Plug 'vim-test/vim-test'
 Plug 'vimwiki/vimwiki'
 

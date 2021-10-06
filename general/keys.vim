@@ -36,6 +36,7 @@ vnoremap <leader>cc :TREPLSendSelection<CR>
 augroup NeotermPython
   autocmd!
   autocmd FileType python nnoremap <silent><buffer> <leader>ca :call neoterm#repl#python#exec(['%run <C-R>%'])<CR>
+  autocmd FileType python nnoremap <silent><buffer> <leader>cl :T exit<CR> <bar> <CMD>Tclose!<CR>
 augroup end
 
 nnoremap <leader>gg <CMD>ZenMode<CR>

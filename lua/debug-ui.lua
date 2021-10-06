@@ -18,14 +18,13 @@ require("dapui").setup({
       -- "watches",
       "breakpoints",
     },
-    width = 40,
     position = "left" -- Can be "left" or "right"
   },
   tray = {
     elements = {
       "repl"
     },
-    height = 5,
+    size = 5,
     position = "bottom" -- Can be "bottom" or "top"
   },
 })

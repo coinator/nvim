@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
  
+Plug'ambv/black'
 Plug 'folke/zen-mode.nvim'
 Plug 'folke/which-key.nvim'
 Plug 'kassio/neoterm'

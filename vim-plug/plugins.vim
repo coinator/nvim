@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
  
-Plug'ambv/black'
+Plug 'airblade/vim-gitgutter'
+Plug 'ambv/black'
 Plug 'folke/zen-mode.nvim'
 Plug 'folke/which-key.nvim'
 Plug 'kassio/neoterm'
@@ -14,7 +15,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'rcarriga/nvim-dap-ui'
-Plug 'rcarriga/vim-ultest'
 Plug 'vim-test/vim-test'
 Plug 'vimwiki/vimwiki'
 
@@ -22,7 +22,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/nvim-cmp'
+Plug 'kdheepak/cmp-latex-symbols'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
 " Telescope

@@ -20,6 +20,9 @@ set nowrap
 " for strict case search append \C
 set ignorecase
 
+" watch result of subs, etc as you type
+set inccommand=nosplit
+
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid, when inside an event handler
 " (happens when dropping a file on gvim) and for a commit message (it's

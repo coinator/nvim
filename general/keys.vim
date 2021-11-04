@@ -35,9 +35,18 @@ nnoremap <leader>ca :TREPLSendFile<CR>
 vnoremap <leader>cc :TREPLSendSelection<CR>
 augroup NeotermPython
   autocmd!
-  autocmd FileType python nnoremap <silent><buffer> <leader>ca :call neoterm#repl#python#exec(['%run <C-R>%'])<CR>
+  autocmd FileType python nnoremap <silent><buffer> <leader>ca :call RunPython()<CR>
   autocmd FileType python nnoremap <silent><buffer> <leader>cl :T exit<CR> <bar> <CMD>Tclose!<CR>
 augroup end
+
+function! RunPython()
+  let filename = expand('%')
+  if filename =~ 'test'
+    execute 'T pytest ' . filename
+  else
+    call neoterm#repl#python#exec(["%run " . filename])
+  endif
+endfunction
 
 nnoremap <leader>gg <CMD>ZenMode<CR>
 

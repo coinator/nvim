@@ -47,9 +47,7 @@ endfunction
 let g:neoterm_autoscroll=1
 let g:neoterm_default_mod = 'vertical'
 
-if $VIRTUAL_ENV != ""
-  let g:neoterm_repl_python = 'jupyter-console'
-endif
+let g:neoterm_repl_python = 'jupyter-console'
 " correctly paste indents
 augroup PythonREPL
   autocmd!

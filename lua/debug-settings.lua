@@ -12,7 +12,7 @@ dap.configurations.python = {
 
     -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
 
-    program = "${workspaceFolder}/${file}"; -- This configuration will launch the current file if used.
+    program = "${file}"; -- This configuration will launch the current file if used.
     console='integratedTerminal';
     pythonPath = function()
       -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.

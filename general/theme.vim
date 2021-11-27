@@ -1,7 +1,12 @@
 set termguicolors
 
-" also need to apt install fonts-powerline
-let g:airline_powerline_fonts = 1
+colorscheme tokyonight
+
+lua << END
+require'lualine'.setup({
+  options = {theme='tokyonight'}
+})
+END
 
 let t:is_transparent = 0
 function! Toggle_transparent()
@@ -15,7 +20,6 @@ function! Toggle_transparent()
 endfunction
 "nnoremap <C-t> :call Toggle_transparent()<CR>
 
-colorscheme onedark
 call Toggle_transparent()
 
 " the vertical bar is used to highlight the space

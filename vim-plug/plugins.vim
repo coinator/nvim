@@ -24,6 +24,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'kdheepak/cmp-latex-symbols'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'hrsh7th/cmp-nvim-lua'
 
 " Telescope
 Plug 'nvim-lua/popup.nvim'

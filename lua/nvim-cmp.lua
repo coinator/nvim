@@ -19,8 +19,8 @@ cmp.setup({
 
 		{ name = 'ultisnips' },
 
-		{ name = 'buffer' },
-
 		{ name = 'latex_symbols' },
+
+		{ name = 'nvim_lua' },
 	}
 })

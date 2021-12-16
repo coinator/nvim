@@ -37,6 +37,7 @@ augroup NeotermPython
   autocmd!
   autocmd FileType python nnoremap <silent><buffer> <leader>ca :call RunPython()<CR>
   autocmd FileType python nnoremap <silent><buffer> <leader>cl :T exit<CR> <bar> <CMD>Tclose!<CR>
+  autocmd FileType python nnoremap <silent> <leader><leader> :call RunMainPython()<CR>
 augroup end
 
 function! RunPython()
@@ -46,6 +47,10 @@ function! RunPython()
   else
     call neoterm#repl#python#exec(["%run " . filename])
   endif
+endfunction
+
+function! RunMainPython()
+  call neoterm#repl#python#exec(["%run " . g:main_file])
 endfunction
 
 nnoremap <leader>gg <CMD>ZenMode<CR>

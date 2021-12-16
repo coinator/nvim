@@ -32,9 +32,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " Aesthetic
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
-
 Plug 'joshdick/onedark.vim'
 Plug 'folke/tokyonight.nvim'
 Plug 'morhetz/gruvbox'

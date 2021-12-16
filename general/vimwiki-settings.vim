@@ -19,4 +19,3 @@ augroup nonEmptyNonWiki
 		endif
 	endfunction
 augroup end
-

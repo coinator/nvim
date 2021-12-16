@@ -2,12 +2,6 @@ set termguicolors
 
 colorscheme tokyonight
 
-lua << END
-require'lualine'.setup({
-  options = {theme='tokyonight'}
-})
-END
-
 let t:is_transparent = 0
 function! Toggle_transparent()
     if t:is_transparent == 0

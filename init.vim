@@ -10,8 +10,8 @@ source $HOME/.config/nvim/general/lazy-mode.vim
 
 luafile $HOME/.config/nvim/lua/nvim-cmp.lua
 luafile $HOME/.config/nvim/lua/lsp-config.lua
-luafile $HOME/.config/nvim/lua/telescope-settings.lua
 luafile $HOME/.config/nvim/lua/lua-lsp.lua
+luafile $HOME/.config/nvim/lua/telescope-settings.lua
 luafile $HOME/.config/nvim/lua/debug-settings.lua
 luafile $HOME/.config/nvim/lua/debug-ui.lua
 luafile $HOME/.config/nvim/lua/treesitter-settings.lua

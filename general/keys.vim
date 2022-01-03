@@ -42,7 +42,7 @@ augroup end
 
 function! RunPython()
   let filename = expand('%')
-  if filename =~ 'test'
+  if filename[0:4] ==# 'test'
     execute 'T pytest ' . filename
   else
     call neoterm#repl#python#exec(["%run " . filename])
@@ -64,3 +64,5 @@ nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Break
 nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
 nnoremap <silent> <leader>ro :lua require'dap'.repl.open()<CR>
 nnoremap <silent> <leader>rl :lua require'dap'.run_last()<CR>
+
+nnoremap yx :s/x/y/g<CR>

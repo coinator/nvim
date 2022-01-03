@@ -14,6 +14,7 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'vim-test/vim-test'
 Plug 'vimwiki/vimwiki'
@@ -36,5 +37,6 @@ Plug 'joshdick/onedark.vim'
 Plug 'folke/tokyonight.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 
 call plug#end()

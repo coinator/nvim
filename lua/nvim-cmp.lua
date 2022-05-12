@@ -31,7 +31,9 @@ require('cmp').register_source('custom_latex_symbols', source.new())
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			vim.fn["UltiSnips#Anon"](args.body)
+			--vim.fn["UltiSnips#Anon"](args.body)
+			require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+
 		end,
 	},
 	mapping = {
@@ -43,7 +45,9 @@ cmp.setup({
 	sources = {
 		{ name = 'nvim_lsp' },
 
-		{ name = 'ultisnips' },
+		--{ name = 'ultisnips' },
+		{ name = 'luasnip' }, -- For luasnip users.
+
 
 		{ name = 'custom_latex_symbols' },
 

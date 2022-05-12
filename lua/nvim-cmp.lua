@@ -28,6 +28,14 @@ end
 
 require('cmp').register_source('custom_latex_symbols', source.new())
 
+function select_cmp_item(fn, fb)
+  if cmp.visible() then
+    fn()
+  else
+    fb()
+  end
+end
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -37,6 +45,12 @@ cmp.setup({
 		end,
 	},
 	mapping = {
+		['<C-n>'] = function(fallback) 
+		  select_cmp_item(cmp.select_next_item, fallback)
+		end,
+		['<C-p>'] = function(fallback) 
+		  select_cmp_item(cmp.select_prev_item, fallback)
+		end,
 		['<C-f>'] = cmp.mapping.scroll_docs(-4),
 		['<C-d>'] = cmp.mapping.scroll_docs(4),
 		['<C-Space>'] = cmp.mapping.complete(),

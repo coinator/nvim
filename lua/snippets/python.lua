@@ -27,7 +27,6 @@ end
 
 function split_snippet_nodes(args)
   local params = t("")
-  print(args)
   args = args:gsub("^self, ", "")
   args = args:gsub("^self$", "")
   if #args > 0 then
@@ -50,7 +49,7 @@ function check_if_class_and_vars(args, parent)
     "@class.outer",
     {line -1, 1},
     nil,
-    { lookahead = true, lookbehind = true }
+    { lookahead = false, lookbehind = true }
   )
   if textobject ~= nil then
       return {t("self"), c(1, {
@@ -90,7 +89,7 @@ def {}({}):
 			)
 		end,
 	{2}),
-   i(5, "Args"), i(6, "return")}))
+   i(5, "Args"), i(6)}))
 
 local new_header_snippet = s("hea", {
         t("####"),

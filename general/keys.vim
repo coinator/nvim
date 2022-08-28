@@ -66,3 +66,7 @@ nnoremap <silent> <leader>ro :lua require'dap'.repl.open()<CR>
 nnoremap <silent> <leader>rl :lua require'dap'.run_last()<CR>
 
 nnoremap yx :s/x/y/g<CR>
+
+
+nnoremap <BS> <C-^>
+nnoremap <leader>rw :Telescope grep_string<CR>

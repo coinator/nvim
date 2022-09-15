@@ -1,6 +1,10 @@
 local query = vim.treesitter.parse_query(
 "python",
-  "(string) @string"
+  [[ (
+      (string) @string 
+      (#match? @string "select|SELECT")
+      ) @expression
+  ]]
 )
 
 local Job = require "plenary.job"
@@ -20,12 +24,12 @@ local format_dat_sql = function(bufnr)
   for id, node, metadata in query:iter_captures(tree:root(), bufnr, 0, -1) do
       local text = vim.treesitter.get_node_text(node, bufnr)
       local split = vim.split(text, "\n")
-      local result = table.concat(vim.list_slice(split, 2, #split - 1), "\n")
+      --local result = table.concat(vim.list_slice(split, 1, #split - 1), "\n")
 
       local j = Job:new {
         command = "/home/m/.config/nvim/venv/bin/python",
         args = { bin },
-        writer = { result },
+        writer = { text },
       }
 
       local range = { node:range() }
@@ -33,14 +37,18 @@ local format_dat_sql = function(bufnr)
       local formatted = j:sync()
       local rep = string.rep(" ", range[2])
       for idx, line in ipairs(formatted) do
-        formatted[idx] = rep .. line
+	if idx > 1 then
+	  formatted[idx] = rep .. line
+	else
+	  formatted[idx] = line
+	end
       end
 
-      table.insert(changes, 1, { start = range[1] + 1, final = range[3], formatted = formatted })
+      table.insert(changes, 1, { start_row = range[1], start_col=range[2], end_row = range[3], end_col=range[4], formatted = formatted })
   end
 
   for _, change in ipairs(changes) do
-    vim.api.nvim_buf_set_lines(bufnr, change.start, change.final, false, change.formatted)
+    vim.api.nvim_buf_set_text(bufnr, change.start_row, change.start_col,  change.end_row, change.end_col, change.formatted)
   end
 end
 

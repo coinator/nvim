@@ -3,7 +3,7 @@ local cmp = require'cmp'
 
 local source = require'cmp_latex_symbols'
 local ts_utils = require'nvim-treesitter.ts_utils'
-local items = require("cmp_latex_symbols/items")
+local items = require'cmp_latex_symbols.items_latex'
 
 function source:is_available()
   return (vim.bo.filetype == 'tex' or vim.bo.filetype == 'python')
@@ -39,7 +39,6 @@ end
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			--vim.fn["UltiSnips#Anon"](args.body)
 			require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
 
 		end,

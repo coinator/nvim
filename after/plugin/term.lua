@@ -24,3 +24,8 @@ api.nvim_create_autocmd("TermOpen", {
   group = termGrp,
 })
 
+api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  command = "nnoremap <buffer> <C-P> a<Up>",
+-- 	autocmd TermOpen * call AdjustHistFile()
+})

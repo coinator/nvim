@@ -10,6 +10,7 @@ o.hidden = true
 -- filetype plugin indent on
 
 g.mapleader = " "
+g.maplocalleader =  " " 
 
 o.number = true
 o.relativenumber = true

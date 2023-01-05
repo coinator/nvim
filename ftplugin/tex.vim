@@ -6,7 +6,7 @@ nnoremap k gk
 augroup latexStuff
   autocmd!
   autocmd BufNewFile,BufRead *.tex set syntax=on
-  command CoverLetterTemplate :0r~/.config/nvim/cover.tex
+  " command CoverLetterTemplate :0r~/.config/nvim/cover.tex
 augroup end
 
 let g:tex_flavor='latex'

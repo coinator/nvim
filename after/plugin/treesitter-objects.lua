@@ -16,8 +16,6 @@ require'nvim-treesitter.configs'.setup {
         ["il"] = "@loop.inner",
         ["ai"] = "@conditional.outer",
         ["ii"] = "@conditional.inner",
-
-
         },
       },
     },

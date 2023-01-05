@@ -1,6 +1,6 @@
 require("zen-mode").setup({
   window = {
-    width = .42, -- width will be 85% of the editor width
+    width = .12, -- width will be 85% of the editor width
     options = {
       signcolumn="no",
     }

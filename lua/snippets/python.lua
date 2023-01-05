@@ -11,7 +11,8 @@ local f = ls.function_node
 local fmt = require('luasnip.extras.fmt').fmt
 
 
-local ts_util = require'nvim-treesitter.textobjects.shared'
+-- local ts_util = require'nvim-treesitter.textobjects.shared'
+local ts_util = require'snippets.utils'
 
 
 function split(inputstr, sep)
@@ -45,13 +46,17 @@ end
 function check_if_class_and_vars(args, parent)
   local line = tonumber(parent["env"]["TM_LINE_NUMBER"])
 
-  local _, textobject = ts_util.textobject_at_point(
+  local classobject = ts_util.textobject_at_point(
     "@class.outer",
     {line -1, 1},
-    nil,
-    { lookahead = false, lookbehind = true }
+    nil
   )
-  if textobject ~= nil then
+  if classobject ~= nil then
+    local _, decoratorobject = ts_util.textobject_at_point(
+      "@decorator.outer",
+      {line -1, 1},
+      nil
+    )
       return {t("self"), c(1, {
 	{t(", "), i(1)},
 	{t(""), t("")}
@@ -62,7 +67,7 @@ end
 
 local function_snippet = s("def", fmt(
      [[
-def {}({}):
+def {}({}){}:
     """
     {}
 
@@ -79,8 +84,12 @@ def {}({}):
 	    )
 	  end,
 	  {1}),
-        i(3, "Doc"),
-    	d(4, function(args)
+	c(3, {
+	  {t(" -> "), i(1)},
+	  {t("")}
+	}),
+        i(4, "Doc"),
+    	d(5, function(args)
 			-- the returned snippetNode doesn't need a position; it's inserted
 			-- "inside" the dynamicNode.
 			return sn(nil, -- jump-indices are local to each snippetNode, so restart at 1.
@@ -89,7 +98,7 @@ def {}({}):
 			)
 		end,
 	{2}),
-   i(5, "Args"), i(6)}))
+   i(6, "Args"), i(7)}))
 
 local new_header_snippet = s("hea", {
         t("####"),

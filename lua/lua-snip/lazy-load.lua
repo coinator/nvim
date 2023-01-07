@@ -44,5 +44,5 @@
 --
 --vim.cmd [[command! LuaSnipEdit :lua _G.edit_ft()]]
 --
-require("luasnip.loaders.from_lua").load({paths="~/.config/nvim/lua/snippets/"})
-vim.cmd [[command! LuaSnipEdit :lua require("luasnip.loaders.from_lua").edit_snippet_files()]]
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets/" })
+vim.cmd([[command! LuaSnipEdit :lua require("luasnip.loaders.from_lua").edit_snippet_files()]])

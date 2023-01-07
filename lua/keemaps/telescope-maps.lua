@@ -1,20 +1,20 @@
 set = vim.keymap.set
 
-builtin = require('telescope.builtin')
+builtin = require("telescope.builtin")
 set("n", "<C-p>", function()
-   builtin.find_files{
-     find_command = { 'ag',  '--hidden',  '--ignore=venv', '--ignore=.git', '-g', ''}
-   }
- end)
+	builtin.find_files({
+		find_command = { "ag", "--hidden", "--ignore=venv", "--ignore=.git", "-g", "" },
+	})
+end)
 
 set("n", "<leader>tt", function()
-   builtin.live_grep()
- end)
+	builtin.live_grep()
+end)
 
 set("n", "<leader>ls", function()
-   builtin.buffers()
- end)
+	builtin.buffers()
+end)
 
 set("n", "<leader>rw", function()
-   builtin.grep_string()
- end)
+	builtin.grep_string()
+end)

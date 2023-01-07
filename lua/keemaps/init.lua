@@ -1,8 +1,8 @@
 set = vim.keymap.set
 
-set({"n", "v", "o"}, ":", ";")
-set({"n", "v", "o"}, ";", ":")
-set({"n", "v", "o"}, "q;", "q:")
+set({ "n", "v", "o" }, ":", ";")
+set({ "n", "v", "o" }, ";", ":")
+set({ "n", "v", "o" }, "q;", "q:")
 
 set("n", "<leader>o", "o<Esc>")
 set("n", "<leader>O", "O<Esc>")
@@ -31,7 +31,6 @@ set("n", "<leader>gg", "<CMD>ZenMode<CR>")
 
 set("n", "yx", ":s/x/y/g<CR>")
 
-
 set("n", "<BS>", "<C-^>")
 
-require('keemaps.telescope-maps')
+require("keemaps.telescope-maps")

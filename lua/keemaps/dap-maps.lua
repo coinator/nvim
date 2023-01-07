@@ -1,5 +1,5 @@
-dap = require("dap")
-set = vim.keymap.set
+local dap = require("dap")
+local set = vim.keymap.set
 
 set("n", "<leader>d", function()
 	dap.continue()

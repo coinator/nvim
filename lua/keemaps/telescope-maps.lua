@@ -1,6 +1,6 @@
-set = vim.keymap.set
+local set = vim.keymap.set
+local builtin = require("telescope.builtin")
 
-builtin = require("telescope.builtin")
 set("n", "<C-p>", function()
 	builtin.find_files({
 		find_command = { "ag", "--hidden", "--ignore=venv", "--ignore=.git", "-g", "" },

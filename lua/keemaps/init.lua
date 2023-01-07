@@ -1,4 +1,4 @@
-set = vim.keymap.set
+local set = vim.keymap.set
 
 set({ "n", "v", "o" }, ":", ";")
 set({ "n", "v", "o" }, ";", ":")

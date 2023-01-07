@@ -1,6 +1,6 @@
-o = vim.opt
-g = vim.g
-api = vim.api
+local o = vim.opt
+local g = vim.g
+local api = vim.api
 
 o.compatible = false
 o.hidden = true

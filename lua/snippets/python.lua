@@ -13,7 +13,7 @@ local fmt = require("luasnip.extras.fmt").fmt
 -- local ts_util = require'nvim-treesitter.textobjects.shared'
 local ts_util = require("snippets.utils")
 
-function split(inputstr, sep)
+local function split(inputstr, sep)
 	if sep == nil then
 		sep = "%s"
 	end
@@ -24,16 +24,16 @@ function split(inputstr, sep)
 	return tab
 end
 
-function split_snippet_nodes(args)
+local function split_snippet_nodes(args)
 	local params = t("")
 	args = args:gsub("^self, ", "")
 	args = args:gsub("^self$", "")
 	if #args > 0 then
 		-- Strip self for methods, no regxep in lua
 		params = { t({ "Arguments:", "" }) }
-		for n, s in pairs(split(args, ",")) do
-			s = s:gsub("%s+", "")
-			params[#params + 1] = t("\t\t" .. s .. ": ")
+		for n, splits in pairs(split(args, ",")) do
+			splits = splits:gsub("%s+", "")
+			params[#params + 1] = t("\t\t" .. splits .. ": ")
 			params[#params + 1] = i(n)
 			params[#params + 1] = t({ "", "" })
 		end
@@ -41,12 +41,13 @@ function split_snippet_nodes(args)
 	return params
 end
 
-function check_if_class_and_vars(args, parent)
+local function check_if_class_and_vars(args, parent)
 	local line = tonumber(parent["env"]["TM_LINE_NUMBER"])
 
 	local classobject = ts_util.textobject_at_point("@class.outer", { line - 1, 1 }, nil)
 	if classobject ~= nil then
-		local _, decoratorobject = ts_util.textobject_at_point("@decorator.outer", { line - 1, 1 }, nil)
+		-- local _, decoratorobject = ts_util.textobject_at_point("@decorator.outer", { line - 1, 1 }, nil)
+		local _, _ = ts_util.textobject_at_point("@decorator.outer", { line - 1, 1 }, nil)
 		return { t("self"), c(1, {
 			{ t(", "), i(1) },
 			{ t(""), t("") },

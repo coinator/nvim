@@ -12,7 +12,7 @@ function Toggle_transparent()
 		vim.cmd("hi Normal guibg=NONE")
 		vim.g.is_transparent = 1
 	else
-		vim.opt.background = dark
+		vim.opt.background = "dark"
 		vim.g.is_transparent = 0
 	end
 end

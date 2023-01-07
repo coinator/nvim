@@ -1,10 +1,10 @@
 local queries = require("nvim-treesitter.query")
 local ts_utils = require("nvim-treesitter.ts_utils")
 
-M = {}
+local M = {}
 
 function M.textobject_at_point(query_string, pos)
-	bufnr = vim.api.nvim_get_current_buf()
+	local bufnr = vim.api.nvim_get_current_buf()
 
 	local row, col = unpack(pos)
 	row = row - 1

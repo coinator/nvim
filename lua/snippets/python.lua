@@ -10,28 +10,19 @@ local f = ls.function_node
 
 local fmt = require("luasnip.extras.fmt").fmt
 
--- local ts_util = require'nvim-treesitter.textobjects.shared'
-local ts_util = require("snippets.utils")
-
-local function split(inputstr, sep)
-	if sep == nil then
-		sep = "%s"
-	end
-	local tab = {}
-	for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
-		table.insert(tab, str)
-	end
-	return tab
-end
+-- local utils = require'nvim-treesitter.textobjects.shared'
+local utils = require("snippets.utils")
 
 local function split_snippet_nodes(args)
 	local params = t("")
 	args = args:gsub("^self, ", "")
 	args = args:gsub("^self$", "")
+	args = args:gsub("^cls, ", "")
+	args = args:gsub("^cls$", "")
 	if #args > 0 then
 		-- Strip self for methods, no regxep in lua
 		params = { t({ "Arguments:", "" }) }
-		for n, splits in pairs(split(args, ",")) do
+		for n, splits in pairs(utils.split(args, ",")) do
 			splits = splits:gsub("%s+", "")
 			params[#params + 1] = t("\t\t" .. splits .. ": ")
 			params[#params + 1] = i(n)
@@ -42,13 +33,19 @@ local function split_snippet_nodes(args)
 end
 
 local function check_if_class_and_vars(args, parent)
+	local self_or_cls = "self"
 	local line = tonumber(parent["env"]["TM_LINE_NUMBER"])
 
-	local classobject = ts_util.textobject_at_point("@class.outer", { line - 1, 1 }, nil)
-	if classobject ~= nil then
-		-- local _, decoratorobject = ts_util.textobject_at_point("@decorator.outer", { line - 1, 1 }, nil)
-		local _, _ = ts_util.textobject_at_point("@decorator.outer", { line - 1, 1 }, nil)
-		return { t("self"), c(1, {
+	local classobject = utils.textobject_at_point("@class.outer", { line - 1, 1 })
+	local decorator, decorator_name = utils.check_for_node({ line - 1, 1 })
+
+	if decorator then
+		if decorator_name == "@classmethod" then
+			self_or_cls = "cls"
+		end
+	end
+	if classobject ~= nil and decorator_name ~= "@staticmethod" then
+		return { t(self_or_cls), c(1, {
 			{ t(", "), i(1) },
 			{ t(""), t("") },
 		}) }
@@ -69,7 +66,7 @@ def {}({}){}:
         {}
     """
     {}
-    ]],
+		]],
 		{
 			i(1, "function"),
 			d(2, function(args, parent)

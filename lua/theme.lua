@@ -18,3 +18,6 @@ function Toggle_transparent()
 end
 
 Toggle_transparent()
+require("notify").setup({
+	background_colour = "#000000",
+})

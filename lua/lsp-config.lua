@@ -40,7 +40,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "vimls" }
+local servers = { "pyright", "vimls", "lua_ls" }
 --local servers = { 'pyright', "vimls" }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({

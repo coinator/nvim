@@ -1,4 +1,4 @@
-local query = vim.treesitter.parse_query(
+local query = vim.treesitter.query.parse(
 	"python",
 	[[ (
       (string) @string 
@@ -44,11 +44,13 @@ local format_dat_sql = function(bufnr)
 			end
 		end
 
-		table.insert(
-			changes,
-			1,
-			{ start_row = range[1], start_col = range[2], end_row = range[3], end_col = range[4], formatted = formatted }
-		)
+		table.insert(changes, 1, {
+			start_row = range[1],
+			start_col = range[2],
+			end_row = range[3],
+			end_col = range[4],
+			formatted = formatted,
+		})
 	end
 
 	for _, change in ipairs(changes) do

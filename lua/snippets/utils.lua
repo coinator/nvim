@@ -48,7 +48,7 @@ function M.check_for_node(pos)
 	local parser = vim.treesitter.get_parser()
 	local tree = parser:parse()[1]
 
-	local query = vim.treesitter.parse_query("python", "(decorator) @decorator")
+	local query = vim.treesitter.query.parse("python", "(decorator) @decorator")
 	for _, node in query:iter_captures(tree:root(), 0) do
 		local row1, _ = node:range() -- range of the capture
 		if fun_row - 1 == row1 then
